@@ -22,9 +22,30 @@ FOCUS_ON_REVERSE_CHECKING = True
 # Default = False
 MINIMIZE_TABS = False
 
+USERNAME_ELEMENTS = [
+    "Travis",
+    "Scott",
+    "Lil",
+    "Vert",
+    "Rouge",
+    "Roddy",
+    "Rich",
+    "Mc",
+    "Blanc",
+    "Blanco",
+    "Blanche",
+    "Blanca",
+    "Noir",
+    "Pierre",
+    "Stone",
+    "Rock",
+    "Rocks",
+    "Rocker",
+    "Crusher",
+]
+
 options = Options()
 options.add_argument("start-minimized")
-PATH = 'C:/Path/To/Chromedriver/Projects/RobloxAccountGenerator/chromedriver'
 
 def closeDriver(drvr: webdriver.Chrome):
 	drvr.close()
@@ -52,9 +73,11 @@ def generateUserPass(chars=string.ascii_lowercase+string.digits):
 	# Password gotta be between 6 and 20
 	passwordLength = 18
 	user = password = ""
-	for i in range(length):
-		char = random.choice(chars)
-		user += char.upper() if random.randint(0,1) == 1 else char if char.isalpha() else char
+    # Old username generation method which included generating random characters
+	# for i in range(length):
+	# 	char = random.choice(chars)
+	# 	user += char.upper() if random.randint(0,1) == 1 else char if char.isalpha() else char
+	user = random.choice(USERNAME_ELEMENTS) + random.choice(USERNAME_ELEMENTS) + str(random.randint(0, 10)) + str(random.randint(0, 10))
 	for i in range(passwordLength):
 		char = random.choice(chars)
 		password += char.upper() if random.randint(0,1) == 1 else char if char.isalpha() else char
@@ -85,7 +108,8 @@ def main():
 	for driver in drivers:
 		# Accept Cookies
 		print("\nNew Account.")
-		if cookieButton := waitForElementClickable(By.CLASS_NAME, "btn-cta-lg", driver, 4):
+		cookieButton = waitForElementClickable(By.CLASS_NAME, "btn-cta-lg", driver, 4)
+		if cookieButton and not isinstance(cookieButton, bool):
 			cookieButton.click()
 			print("Cookies accepted")
 
