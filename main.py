@@ -77,7 +77,7 @@ def generateUserPass(chars=string.ascii_lowercase+string.digits):
 	# for i in range(length):
 	# 	char = random.choice(chars)
 	# 	user += char.upper() if random.randint(0,1) == 1 else char if char.isalpha() else char
-	user = random.choice(USERNAME_ELEMENTS) + random.choice(USERNAME_ELEMENTS) + str(random.randint(0, 10)) + str(random.randint(0, 10))
+	user = random.choice(USERNAME_ELEMENTS) + random.choice(USERNAME_ELEMENTS) + str(random.randint(1111, 10000))
 	for i in range(passwordLength):
 		char = random.choice(chars)
 		password += char.upper() if random.randint(0,1) == 1 else char if char.isalpha() else char
