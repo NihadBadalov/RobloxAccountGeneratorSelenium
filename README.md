@@ -5,11 +5,18 @@ Roblox Account Generator for Python, based on Selenium.
 Download chromedriver from [this website](https://sites.google.com/chromium.org/driver/) and replace it with what you have in the folder
 
 # Requirements
+First, run this command in your terminal to install the required packages:
+```bash
+pip install -r requirements.txt
+```
 
-- Python 3.8 or higher
-- Google Chrome installed
-- chromedriver matching your Google Chrome version from [this website](https://sites.google.com/chromium.org/driver/)
-- These python packages installed - selenium, playsound
+Make sure your Python version is 3.8 or higher.
+
+Make sure you have Google Chrome installed.
+
+
+Then, download a chromedriver matching your Google Chrome version
+from [this website](https://sites.google.com/chromium.org/driver/).
 
 # Cooldowns
 
